@@ -1,0 +1,29 @@
+create table res_table(
+	res_user_name varchar2(20) not null,
+	res_date date(25) not null,
+	res_count_all number(4) constraint pk_res_count_all primary key,
+	res_count number(4)  not null
+						 check(res_count>=1000),
+	thread_name varchar2(200),
+	res_content varchar2(1000) nou null,
+);
+
+insert into user_table values('','');
+insert into user_table values('','');
+
+commit;
+
+
+create table thread_table(
+	thread_id number(4) constraint pk thread_id primary key,
+	thread_name varchar2(200) not null
+							  unique,
+	create_name date(25),
+	last_update date(25),
+	catehory_id number(2)
+);
+
+insert into user_table values('','');
+insert into user_table values('','');
+
+commit;
