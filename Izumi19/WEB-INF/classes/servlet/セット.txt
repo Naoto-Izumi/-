@@ -1,0 +1,15 @@
+set classpath=C:\tomcat8\lib\servlet-api.jar;.
+
+set classpath=C:\tomcat8\lib\ojdbc14.jar;.
+
+
+
+set classpath=C:\tomcat8\lib\servlet-api.jar;C:\tomcat8\lib\ojdbc14.jar;C:\webapps\board\WEB-INF\classes
+
+
+
+
+
+
+
+set classpath=C:\tomcat8\lib\servlet-api.jar;C:\webapps\java5\WEB-INF\classes
