@@ -1,7 +1,7 @@
 package servlet;
 
-import beans.*;   
-import arugo.*; 
+import gobou.*;   
+import behavior.*; 
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -26,27 +26,27 @@ public class Registerservlet extends HttpServlet{
 		String destination="/register.jsp";
 		HttpSession session=req.getSession();
 		
-		Userbeans userbeans=new Userbeans();
+		Usergobou usergobou=new Usergobou();
 		
-		userbeans.setU_UserName(username);
-		userbeans.setPassWord(password);
+		usergobou.setU_UserName(username);
+		usergobou.setPassWord(password);
 	
 		Register register=new Register();
 		//ここで未記入がないか確認
-		register.registerNull(userbeans);
+		register.registerNull(usergobou);
 		
 		//未記入がなければ
-		if(userbeans.getHantei()==true){
-			if(register.register(userbeans)==true){
+		if(usergobou.getHantei()==true){
+			if(register.register(usergobou)==true){
 				destination="/index.jsp";
-				session.setAttribute("user",userbeans);
+				session.setAttribute("user",usergobou);
 				System.out.println("ユーザー登録できました。");
 				
 			}
 			
 		}
 		else{ //未記入があったなら
-			req.setAttribute("regierrors",userbeans.getError());
+			req.setAttribute("regierrors",usergobou.getError());
 			
 		}
 		

@@ -1,7 +1,7 @@
 package servlet;
 
-import beans.*;   
-import arugo.*; 
+import gobou.*;   
+import behavior.*; 
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

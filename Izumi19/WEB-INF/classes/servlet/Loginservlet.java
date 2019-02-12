@@ -1,7 +1,7 @@
 package servlet;
 
-import beans.*;   
-import arugo.*; 
+import gobou.*;   
+import behavior.*; 
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -28,38 +28,38 @@ public class Loginservlet extends HttpServlet{
 		req.setAttribute("loginlogg",loginlog);
 		System.out.println("Loginservletの中のセッションに入れたloginlogの値は"+session.getAttribute("loginlog"));
 		
-		Userbeans userbeans=new Userbeans();
+		Usergobou usergobou=new Usergobou();
 		Login login=new Login();
 		
-		//userbeans.setUsername(username);
-		//userbeans.setPassword(password);
-		userbeans.setU_UserName(username);
-		userbeans.setPassWord(password);
+		//usergobou.setUsername(username);
+		//usergobou.setPassword(password);
+		usergobou.setU_UserName(username);
+		usergobou.setPassWord(password);
 		
 		
-		login.loginNull(userbeans);
+		login.loginNull(usergobou);
 		//ここでセッションに入れているのは一回記入したらデータが消えてしまうという
 		//状態を防ぐため。ログインミスってもデータが残るように。
-		session.setAttribute("userlog",userbeans);
+		session.setAttribute("userlog",usergobou);
 		
-		if(userbeans.getHantei()==true){
+		if(usergobou.getHantei()==true){
 			//ここでログインしている。
 			
-			if(login.login(userbeans)==true){
+			if(login.login(usergobou)==true){
 				destination="/index.jsp";
 				//"user"の値があるかどうかでログインしているかどうかを決める。
-				session.setAttribute("user",userbeans);
+				session.setAttribute("user",usergobou);
 			}
 			else{
-				userbeans.addError("名前またはパスワードが間違っています。");
-				session.setAttribute("errors",userbeans.getError());
+				usergobou.addError("名前またはパスワードが間違っています。");
+				session.setAttribute("errors",usergobou.getError());
 				//System.out.println("に値を入れました。");
 				//destination="kakunin.jsp";
 			}
 		}
 		else{
 			//21日野澤
-			req.setAttribute("errors",userbeans.getError());
+			req.setAttribute("errors",usergobou.getError());
 		}
 		
 		RequestDispatcher dispatcher=req.getRequestDispatcher(destination);

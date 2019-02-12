@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import arugo.*;
-import beans.*;
+import behavior.*;
+import gobou.*;
 
 public class Searchservlet extends HttpServlet{
 	
@@ -20,7 +20,7 @@ public class Searchservlet extends HttpServlet{
 		
 		req.setCharacterEncoding("Windows-31J");
 		//OracleDBAのSearchメソッドに取ってきた値を引数に渡す。
-		//そのあとSearchメソッドはArrayList<Thrbeans>を戻すから
+		//そのあとSearchメソッドはArrayList<Thrgobou>を戻すから
 		//それを入れるための変数を用意する。
 		//そのあとその変数をjspで表示させるためにsessionにその変数を渡す。
 		//そのあとその変数をjsp側で取り出す。
@@ -35,7 +35,7 @@ public class Searchservlet extends HttpServlet{
 		
 		//かいてきた値を listとでとってる
 		
-		ArrayList<Thrbeans> result = OracleDBA.Search(s);
+		ArrayList<Thrgobou> result = OracleDBA.Search(s);
 		//ここで値をとってきた
 		
 		

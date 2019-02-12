@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.RequestDispatcher;
 import java.io.*;
 import java.util.ArrayList;
-import beans.*;   
-import arugo.*; 
+import gobou.*;   
+import behavior.*; 
 import javax.servlet.http.HttpSession;
     
 public class Logoutservlet extends HttpServlet{

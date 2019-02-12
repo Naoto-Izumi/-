@@ -1,7 +1,7 @@
 package servlet;
 
-import beans.*;   
-import arugo.*; 
+import gobou.*;   
+import behavior.*; 
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +27,7 @@ public class Resservlet extends HttpServlet{
 			
 			String thread_id=req.getParameter("thread_id");
 			int threadid=Integer.parseInt(thread_id);
-			ArrayList<Resbeans> resList=new ArrayList<Resbeans>();
+			ArrayList<Resgobou> resList=new ArrayList<Resgobou>();
 			Buildlogic buildlogic=new Buildlogic();
 			String destination="/thread.jsp";
 			session.setAttribute("thread_id",thread_id);
@@ -90,19 +90,19 @@ public class Resservlet extends HttpServlet{
 		coment=coment.replaceAll("\t","&nbsp");
 		
 		
-		Resbeans resbeans=new Resbeans();
+		Resgobou resgobou=new Resgobou();
 		Buildlogic buildlogic=new Buildlogic();
 		
 		
-		resbeans.setR_UserName(username);
-		resbeans.setRes(coment);
-		resbeans.setR_Thread_id(threadid);
-		resbeans.setResTime(restime);
-		//resのテーブルのthreadname列をなくしたからresbeansでも値を保持しないほうにしている。
-		//resbeans.setThreadname(threadname);
+		resgobou.setR_UserName(username);
+		resgobou.setRes(coment);
+		resgobou.setR_Thread_id(threadid);
+		resgobou.setResTime(restime);
+		//resのテーブルのthreadname列をなくしたからresgobouでも値を保持しないほうにしている。
+		//resgobou.setThreadname(threadname);
 		
 		////////ここでシーケンスがなかったら作成。あったら何もしない。
-		/////buildlogic.createseq(resbeans);
+		/////buildlogic.createseq(resgobou);
 		
 		//そのスレッドに関するboard_threadのrescountの値の最大値を取り出す。
 		//
@@ -121,11 +121,11 @@ public class Resservlet extends HttpServlet{
 		
 		//ここでスレッドに対するコメントを追加。さらに追加後のレスリストを返して
 		//その後リクエストスコープに入れてthread.jspで表示
-		buildlogic.resInsert(resbeans,rescount);
+		buildlogic.resInsert(resgobou,rescount);
 		
-		ArrayList<Resbeans> resList=buildlogic.resSelect(threadid);
+		ArrayList<Resgobou> resList=buildlogic.resSelect(threadid);
 		//indexで表示させるthreadの情報をここで更新。
-		ArrayList<Thrbeans> thrList=OracleDBA.startSQL();
+		ArrayList<Thrgobou> thrList=OracleDBA.startSQL();
 		
 		
 		if(resList.size()!=0){

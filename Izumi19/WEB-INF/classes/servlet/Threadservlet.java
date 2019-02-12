@@ -1,7 +1,7 @@
 package servlet;
 
-import beans.*;
-import arugo.*;
+import gobou.*;
+import behavior.*;
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -45,25 +45,25 @@ public class Threadservlet extends HttpServlet{
 		System.out.println("スレッドサーブレットのcreatorは"+creator);
 		System.out.println("スレッドサーブレットのdayは"+day);
 		
-		Thrbeans thrbeans = new Thrbeans();
+		Thrgobou thrgobou = new Thrgobou();
 		Buildlogic buildlogic=new Buildlogic();
 		
-		thrbeans.setThreadName(title);
-		thrbeans.setThreadSentence(titleSentence);
-		thrbeans.setT_UserName(creator);
-		thrbeans.setCreatedDate(day);
-		thrbeans.setLastUpdate(day);
+		thrgobou.setThreadName(title);
+		thrgobou.setThreadSentence(titleSentence);
+		thrgobou.setT_UserName(creator);
+		thrgobou.setCreatedDate(day);
+		thrgobou.setLastUpdate(day);
 		
-		buildlogic.thrbuildNull(thrbeans);
-		if(thrbeans.getHantei()==true){
+		buildlogic.thrbuildNull(thrgobou);
+		if(thrgobou.getHantei()==true){
 			////////////題名が入っていたらindex.jspに戻るようになる。
 			//ここがindex.jspに戻るのではなくて、thread.jspに行くようにする。
 			destination="/thread.jsp";
 			//ここではスレッドの情報をインサートしてすべてのスレッドを引き出している。
-			//ここでシーケンスごとインサートする。で、idを取り出してまたThrbeansに入れる。
+			//ここでシーケンスごとインサートする。で、idを取り出してまたThrgobouに入れる。
 			
 			//ここでindex.jspで表示させるべきリストを更新。今さっき作ったスレッドを含むリストを変える。
-			ArrayList<Thrbeans> thrList=buildlogic.thrbuild(thrbeans);
+			ArrayList<Thrgobou> thrList=buildlogic.thrbuild(thrgobou);
 			String id=OracleDBA.searchId(creator);
 			System.out.println("Threadservleで取り出したid:"+id);
 			//ここで前に投稿したときの値を消すためにresListを消す。
@@ -79,7 +79,7 @@ public class Threadservlet extends HttpServlet{
 			
 		}
 		else{
-			session.setAttribute("errors",thrbeans.getError());
+			session.setAttribute("errors",thrgobou.getError());
 		}
 		
 		
