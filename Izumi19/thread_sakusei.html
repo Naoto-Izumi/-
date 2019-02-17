@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang ="ja">
+<head>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<meta charset="utf-8">
+	<title>テスト</title>
+</head>
+<body>
+	<div class="header-container layout-header">
+    	<!-- ngIf: isMobile && !cookieEnabled && !noNocookieWarning -->
+        <!-- ngIf: (isMobile || isTablet) && backToAppBtnEnabled && !noBackToApp -->
+        <!-- ngIf: isMobile && !noLobiDownloader && !isSignedIn -->
+        <header class="header" ng-show="!noHeader"><!-- ngIf: !isSimpleHeader --><div ng-if="!isSimpleHeader">
+    	<a href="/" class="header__logo" ga-imp-click="Header__logo"><img src="泉掲示板.png" width="45" height="45"></a>
+   		<!-- ngIf: isSignedIn -->
+    	<!-- ngIf: isSignedIn -->
+    	<!-- ngIf: !isSignedIn -->
+    	<a href="/" class="header__slogan" ng-if="!isSignedIn" ga-imp-click="Header__to-discover"><img src="izumi.png" width="255" height="47"></a><!-- end ngIf: !isSignedIn -->
+    	<div class="search-box">
+    		<form class="search-box__form ng-pristine ng-valid" ng-submit="search($event)" ng-class="{'search-box__form--active':typing || keyword.length > 0}">
+    			<input type="text" ng-model="keyword" class="search-box__keyword ng-pristine ng-untouched ng-valid" placeholder="検索" ng-focus="typing=true" ng-blur="typing=false">
+			</form>
+		</div>
+    	<!-- ngIf: isSignedIn -->
+    	<div login-status="">
+    		<div class="c-login-status">
+    			<!-- ngIf: ::self -->
+
+    			<!-- ngIf: ::self -->
+
+    			<!-- ngIf: !self -->
+    				<div class="c-login-status__info c-login-status__info--logged-out" ng-if="!self">
+        				<a href="javascript:void(0)" class="c-login-status__login" ga-imp-click="Login-status__to-signup">新規登録・ログイン</a>
+    				</div><!-- end ngIf: !self -->
+    				<!-- ngIf: !self -->
+    				<div class="c-login-status__login-dropdown" ng-if="!self">
+        				<ul class="c-login-status__login-dropdown-menu">
+            			<li class="c-login-status__login-dropdown-items">
+            				<div class="c-login-status__downloads lobi-download">
+            					<div class="lobi-download__lobi">
+            					</div>
+							</div></li>
+        				</ul>
+   						</div><!-- end ngIf: !self -->
+					</div>
+				</div>
+			</div><!-- end ngIf: !isSimpleHeader -->
+
+			<!-- ngIf: isSimpleHeader -->
+
+			<div class="loading-bar-container">
+			</div>
+		</header>
+    </div>
+    <div class="qwerty">
+    	<form method='post' class="b" action='izumi'>
+    		<!--スレッド書き込みページ<br>
+    		名前:<input type='text' name='name'><br>
+    		パスワード<input type='text' name='pass'>
+    		<!--<textarea name='comment' cols="50" rows="2"></textarea>--><!--<br><br>
+    		<input type='submit' value='書き込む'>-->
+    		ユーザー名<input type='text' name='name'><br>
+			パスワード<input type='text' name='pass'><br>
+			<input type='submit' value='登録'>
+    	</form>
+    </div>
+</body>
+<html>

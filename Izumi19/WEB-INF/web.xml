@@ -1,35 +1,33 @@
 <web-app>
 
 	<servlet>
-		<servlet-name>Kamata</servlet-name>
-		<servlet-class>KamataServlet</servlet-class>
+		<servlet-name>Izumi</servlet-name>
+		<servlet-class>IzumiServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>Kamata</servlet-name>
-		<url-pattern>/mahiro</url-pattern>
+		<servlet-name>Izumi</servlet-name>
+		<url-pattern>/izumi</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>time</servlet-name>
-		<jsp-file>/time.jsp</jsp-file>
+		<servlet-name>izumilist</servlet-name>
+		<jsp-file>/sakusei.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>time</servlet-name>
-		<url-pattern>/time</url-pattern>
+		<servlet-name>izumilist</servlet-name>
+		<url-pattern>/izumilist</url-pattern>
 	</servlet-mapping>
-
-
-	<servlet>
-		<servlet-name>list</servlet-name>
-		<jsp-file>/listoutput.jsp</jsp-file>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>list</servlet-name>
-		<url-pattern>/list</url-pattern>
-	</servlet-mapping>
-
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/notfound.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/nocontent.jsp</location>
+	</error-page>
 
 </web-app>
