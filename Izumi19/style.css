@@ -83,7 +83,7 @@ color: #333;
 outline: none;
 }
 
-.loading-bar-container{
+.loading{
 position: absolute;
 width: 100%;
 top: 48px;
@@ -111,44 +111,32 @@ top: 48px;
   cursor: default;
 }
 
-.c-login-status__login-dropdown{
-position: absolute;
-top: 40px;
-left: 0;
-display: none;
-background-color: rgba(0,0,0,.5);
-}
+
 .c-login-status__login{
 display: inline-block;
-padding: 0 15px;
+padding: 0 70px;
 font-size: 1.3em;
 font-weight: 700;
 line-height: 48px;
-textdecoration: none;
+text-decoration: none;
+color: #000;
 }
-.c-login-status_login2{
-	display: inline-block;
-	padding: 0 70px;
-	font-size: 1.3px;
-	font-weight:700;
-	line-height:48px;
-	text-decoration: none;
-	color:#000;
+.c-login-status__login2{
+display: inline-block;
+position: absolute;
+right: 10px;
+font-size: 1.3em;
+font-weight: 700;
+line-height: 48px;
+text-decoration: none;
+color: #000;
 }
+
 .qwerty{
-	position: relative;
-	margin:0px 200px;
-	padding: 0px 200px 1000px;
-	border:1px solid #000;
-	height:0px;
-}
-.a{
-	position:relative;
-	margin:70px;
-	padding:0px;
-}
-.b{
-	position:relative;
-	margin:70px 0px 0px 0px;
-	
+position: relative;
+margin : 0px 200px ;
+padding : 0px 200px 1000px;
+border : 1px solid #000;
+
+
 }

@@ -11,11 +11,11 @@
         <!-- ngIf: (isMobile || isTablet) && backToAppBtnEnabled && !noBackToApp -->
         <!-- ngIf: isMobile && !noLobiDownloader && !isSignedIn -->
         <header class="header" ng-show="!noHeader"><!-- ngIf: !isSimpleHeader --><div ng-if="!isSimpleHeader">
-    	<a href="/" class="header__logo" ga-imp-click="Header__logo"><img src="泉掲示板.png" width="45" height="45"></a>
+    	<a href="/" class="header__logo" ga-imp-click="Header__logo"><img src="izumilogo1.jpg" width="45" height="45"></a>
    		<!-- ngIf: isSignedIn -->
     	<!-- ngIf: isSignedIn -->
     	<!-- ngIf: !isSignedIn -->
-    	<a href="/" class="header__slogan" ng-if="!isSignedIn" ga-imp-click="Header__to-discover"><img src="izumi.png" width="255" height="47"></a><!-- end ngIf: !isSignedIn -->
+    	<a href="/" class="header__slogan" ng-if="!isSignedIn" ga-imp-click="Header__to-discover"><img src="izumilogo2.jpg" width="255" height="47"></a><!-- end ngIf: !isSignedIn -->
     	<div class="search-box">
     		<form class="search-box__form ng-pristine ng-valid" ng-submit="search($event)" ng-class="{'search-box__form--active':typing || keyword.length > 0}">
     			<input type="text" ng-model="keyword" class="search-box__keyword ng-pristine ng-untouched ng-valid" placeholder="検索" ng-focus="typing=true" ng-blur="typing=false">
